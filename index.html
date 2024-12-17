@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="css.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('nav ul li a');
+            const sections = document.querySelectorAll('section');
+
+            function showSection(id) {
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(id).style.display = 'block';
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.getAttribute('href').substring(1);
+                    showSection(id);
+                });
+            });
+
+            // Afficher la section Accueil par défaut
+            showSection('accueil');
+        });
+    </script>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <h1>Mon Portfolio</h1>
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="accueil">Accueil</a></li>
+                <li><a href="projets">Mes Projets</a></li>
+                <li><a href="veille">Veille Technologique</a></li>
+                <li><a href="documents">Documents</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sections avec affichage dynamique -->
+    <section id="accueil">
+        <h2>Accueil</h2>
+        <p>Bienvenue sur mon portfolio ! Vous trouverez ici mes projets, ma veille technologique et des documents utiles.</p>
+    </section>
+
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        <p>Voici les projets que j'ai réalisés durant mes études et mes expériences professionnelles :</p>
+    </section>
+
+    <section id="veille">
+        <h2>Veille Technologique</h2>
+        <p>Mes recherches et articles sur les dernières tendances technologiques :</p>
+    </section>
+
+    <section id="documents">
+        <h2>Documents</h2>
+        <p>Voici quelques documents importants relatifs à mon parcours :</p>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 - Zyad Harkat | Mon Portfolio</p>
+    </footer>
+</body>
+</html>
